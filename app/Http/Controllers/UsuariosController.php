@@ -49,7 +49,7 @@ class UsuariosController extends Controller
         $usuario->update($request->all());
 
         return response()->json([
-            'message' => "Usuário adicionado a lista de contatos!",
+            'message' => "Usuário alterado com sucesso  !",
             'usuario' => $usuario
         ], 200);
     }
