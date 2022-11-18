@@ -23,5 +23,48 @@ class UsuariosControllerTests extends TestCase
         DB::rollback();
         parent::tearDown();
     }
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function test_cadastro_de_usuario_na_agenda_com_resposta_de_sucesso()
+    {
+
+        $newUserData = [
+            "nome"=> "Teste",
+            "telefone"=> "12999999999",
+            "email"=> "test@gmail.com",
+            "cep"=> "11111111",
+            "estado"=> "estado teste",
+            "cidade"=> "cidade teste",
+            "bairro"=> "bairro teste",
+            "endereco"=> "Rua teste",
+            "endereco_numero"=> "0"
+        ];
+
+        $this->json('POST', 'api/usuarios', $newUserData, ['Accept' => 'application/json', 'Content-type' => 'application/json'])
+        ->assertStatus(201)
+        ->assertJsonCount(12, 'usuario')
+        ->assertJsonStructure([
+            'message',
+            'usuario' => [
+                "nome",
+                "telefone",
+                "email",
+                "cep",
+                "estado",
+                "cidade",
+                "bairro",
+                "endereco",
+                "endereco_numero",
+                "updated_at",
+                "created_at",
+                "id"
+            ],
+        ]);
+
+    }
+
     }
 }
