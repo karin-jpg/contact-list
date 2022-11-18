@@ -13,7 +13,7 @@ class UsuariosRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class UsuariosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "nome" => "required",
+            "telefone" => "required",
+            "email" => "required|email:rfc,dns",
+            "cep" => "required",
+            "estado" => "required",
+            "cidade" => "required",
+            "bairro" => "required",
+            "endereco" => "required",
+            "endereco_numero" => "number"
         ];
     }
 }
