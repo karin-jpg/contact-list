@@ -66,5 +66,23 @@ class UsuariosControllerTests extends TestCase
 
     }
 
+    public function test_cadastro_de_usuario_na_agenda_com_resposta_de_erro()
+    {
+
+        $newUserData = [
+            "nome"=> "",
+            "telefone"=> "12999999999",
+            "email"=> "test@gmail.com",
+            "cep"=> "11111111",
+            "estado"=> "estado teste",
+            "cidade"=> "cidade teste",
+            "bairro"=> "bairro teste",
+            "endereco"=> "Rua teste",
+            "endereco_numero"=> "0"
+        ];
+
+        $this->json('POST', 'api/usuarios', $newUserData, ['Accept' => 'application/json', 'Content-type' => 'application/json'])
+        ->assertStatus(500);
+
     }
 }
