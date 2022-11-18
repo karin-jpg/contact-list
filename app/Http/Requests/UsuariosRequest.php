@@ -31,8 +31,22 @@ class UsuariosRequest extends FormRequest
             "estado" => "required",
             "cidade" => "required",
             "bairro" => "required",
-            "endereco" => "required",
-            "endereco_numero" => "number"
+            "endereco" => "required"
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nome.required' => "O nome é obrigatório",
+            'telefone.required' => "O telefone é obrigatório",
+            'email.required' => "O email é obrigatório",
+            'email.email' => "Insira um email válido",
+            'cep.required' => "O cep é obrigatório",
+            'estado.required' => "O estado é obrigatório",
+            'cidade.required' => "O cidade é obrigatório",
+            'bairro.required' => "O bairro é obrigatório",
+            'endereco.required' => "O endereco é obrigatório",
         ];
     }
 }
