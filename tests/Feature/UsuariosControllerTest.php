@@ -74,7 +74,7 @@ class UsuariosControllerTests extends TestCase
             "telefone"=> "12999999999",
             "email"=> "test@gmail.com",
             "cep"=> "11111111",
-            "estado"=> "estado teste",
+            "estado"=> "",
             "cidade"=> "cidade teste",
             "bairro"=> "bairro teste",
             "endereco"=> "Rua teste",
@@ -82,7 +82,15 @@ class UsuariosControllerTests extends TestCase
         ];
 
         $this->json('POST', 'api/usuarios', $newUserData, ['Accept' => 'application/json', 'Content-type' => 'application/json'])
-        ->assertStatus(500);
+        ->assertStatus(422)
+        ->assertJsonCount(2)
+        ->assertJsonStructure([
+            'message',
+            'errors' => [
+                'nome',
+                'estado'
+            ]
+        ]);
 
     }
 }
