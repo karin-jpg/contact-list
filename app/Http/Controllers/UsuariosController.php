@@ -51,7 +51,7 @@ class UsuariosController extends Controller
         $usuario->update($request->all());
 
         return response()->json([
-            'message' => "Usuário alterado com sucesso  !",
+            'message' => "Usuário alterado com sucesso!",
             'usuario' => $usuario
         ], 200);
     }
@@ -69,9 +69,9 @@ class UsuariosController extends Controller
             $usuario->delete();
 
             return response()->json([
-                'messagem' => "Usuário removido da lista de contatos com sucesso!"
+                'message' => "Usuário removido da lista de contatos com sucesso!"
             ], 200);
-            
+
         } catch(Exception $exception) {
             return response()->json([
                 'error' => 'Usuário não existente ou inválido!'
