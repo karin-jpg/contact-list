@@ -57,6 +57,30 @@ class UsuariosControllerTests extends TestCase
         ]);
     }
 
+    public function test_recuperacao_de_usuario_especifico_da_agenda()
+    {
+        $this->criar_usuario();
+
+        $this->json('GET', 'api/usuarios/1', ['Accept' => 'application/json', 'Content-type' => 'application/json'])
+        ->assertStatus(200)
+        ->assertJsonStructure([
+            'usuario' => [
+                "id",
+                "nome",
+                "telefone",
+                "email",
+                "cep",
+                "estado",
+                "cidade",
+                "bairro",
+                "endereco",
+                "endereco_numero",
+                "updated_at",
+                "created_at"
+            ]
+        ]);
+    }
+
     public function test_cadastro_de_usuario_na_agenda_com_resposta_de_sucesso()
     {
 
