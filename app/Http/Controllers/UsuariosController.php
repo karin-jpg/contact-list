@@ -23,6 +23,13 @@ class UsuariosController extends Controller
         ]);
     }
 
+    public function show(Usuarios $usuario)
+    {
+        return response()->json([
+            'usuario' => $usuario
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
