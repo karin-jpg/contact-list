@@ -119,4 +119,16 @@ class UsuariosControllerTests extends TestCase
         ]);
 
     }
+
+    public function test_remocao_usuario_da_agenda()
+    {
+        $this->criar_usuario();
+
+        $this->json('DELETE', 'api/usuarios/1', ['Accept' => 'application/json', 'Content-type' => 'application/json'])
+        ->assertStatus(200)
+        ->assertJsonCount(1)
+        ->assertJsonFragment([
+            'message' => "Usuário removido da lista de contatos com sucesso!"
+        ]);
+    }
 }
