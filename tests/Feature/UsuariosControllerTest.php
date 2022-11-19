@@ -102,6 +102,8 @@ class UsuariosControllerTests extends TestCase
     public function test_atualizacao_de_usuario_na_agenda_com_resposta_de_sucesso()
     {
 
+        $this->criar_usuario();
+
         $updateUserData = [
             "nome"=> "New user name",
             "telefone"=> "12888888888",
@@ -109,15 +111,11 @@ class UsuariosControllerTests extends TestCase
         ];
 
         $this->json('PUT', 'api/usuarios/1', $updateUserData, ['Accept' => 'application/json', 'Content-type' => 'application/json'])
-        ->assertStatus(404)
+        ->assertStatus(200)
         ->assertJsonCount(2)
         ->assertJsonCount(12, 'usuario')
-        ->assertJsonStructure([
-            'message',
-            'errors' => [
-                'nome',
-                'estado'
-            ]
+        ->assertJsonFragment([
+            'message' => "Usuário alterado com sucesso!"
         ]);
 
     }
