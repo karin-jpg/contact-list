@@ -33,6 +33,30 @@ class UsuariosControllerTests extends TestCase
         $this->call('POST', 'api/usuarios', $newUserData);
     }
 
+    public function test_recuperacao_de_usuarios_da_agenda()
+    {
+        $this->criar_usuario();
+
+        $this->json('GET', 'api/usuarios', ['Accept' => 'application/json', 'Content-type' => 'application/json'])
+        ->assertStatus(200)
+        ->assertJsonStructure([
+            'usuarios' => [[
+                "id",
+                "nome",
+                "telefone",
+                "email",
+                "cep",
+                "estado",
+                "cidade",
+                "bairro",
+                "endereco",
+                "endereco_numero",
+                "updated_at",
+                "created_at"
+            ]]
+        ]);
+    }
+
     public function test_cadastro_de_usuario_na_agenda_com_resposta_de_sucesso()
     {
 
