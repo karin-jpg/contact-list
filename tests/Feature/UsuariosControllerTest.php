@@ -85,4 +85,27 @@ class UsuariosControllerTests extends TestCase
         ]);
 
     }
+
+    public function test_atualizacao_de_usuario_na_agenda_com_resposta_de_sucesso()
+    {
+
+        $updateUserData = [
+            "nome"=> "New user name",
+            "telefone"=> "12888888888",
+            "email"=> "test@gmail.com",
+        ];
+
+        $this->json('PUT', 'api/usuarios/1', $updateUserData, ['Accept' => 'application/json', 'Content-type' => 'application/json'])
+        ->assertStatus(404)
+        ->assertJsonCount(2)
+        ->assertJsonCount(12, 'usuario')
+        ->assertJsonStructure([
+            'message',
+            'errors' => [
+                'nome',
+                'estado'
+            ]
+        ]);
+
+    }
 }
