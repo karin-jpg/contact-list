@@ -1,8 +1,22 @@
 
 import './bootstrap';
 
-import { createApp, createElementBlock } from 'vue'
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
-import app from './components/app.vue'
+import App from './App.vue'
+import Agenda from './components/agenda.vue'
+import AgendaForm from './components/agenda-form.vue'
 
-createApp(app).mount('#app')
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        { path: '/', component: Agenda },
+        { path: '/form', component: AgendaForm }
+    ]
+});
+
+createApp(App)
+    .use(router)
+    .mount('#app')
