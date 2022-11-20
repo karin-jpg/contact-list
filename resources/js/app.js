@@ -15,9 +15,9 @@ import EditarContato from './views/EditarContato.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: Agenda },
-        { path: '/criar-contato', component: CriarContato},
-        { path: '/editar', component: EditarContato }
+        { path: '/', name: 'Home', component: Agenda },
+        { path: '/criar-contato', name: 'criarContato' component: CriarContato},
+        { path: '/editar-contato/:id', name: 'editarContato', component: EditarContato }
     ]
 });
 
