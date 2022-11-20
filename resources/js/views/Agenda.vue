@@ -3,8 +3,7 @@
         <h1 class="mb-5"> Agenda </h1>
         <div class="row h-100 align-items-center">
             <div class="col-12">
-                <router-link to="/form" type="button" class="btn btn-primary">Editar contato</router-link>
-
+                <router-link to="/editar" type="button" class="btn btn-primary">Novo contato</router-link>
                 <table class="table">
                     <thead>
                         <tr>
