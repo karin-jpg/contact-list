@@ -63,7 +63,7 @@
                     <router-link to="/" type="button" class="btn btn-danger me-2">Voltar</router-link>
                 </div>
                 <div>
-                    <button type="button" @click="validarFormulario()" class="btn" :class="{'btn-primary': !modoEdicao, 'btn-warning': modoEdicao}">{{ textoTela.botaoConfirmar }}</button>
+                    <button type="button" @click="validarFormulario()" class="btn" :class="{'btn-primary': !modoEdicao, 'btn-warning': modoEdicao}" :disabled="desabilitarBotaoFormulario">{{ textoTela.botaoConfirmar }}</button>
                 </div>
             </div>
         </form>
@@ -76,6 +76,7 @@ export default {
     data(){
         return {
 
+            desabilitarBotaoFormulario: false,
             requisicao: {
                 mensagem: '',
                 sucesso: true,
@@ -204,6 +205,7 @@ export default {
         },
 
         validarFormulario(){
+            this.desabilitarBotaoFormulario = true;
 
             for (const key in this.validacaoFormulario) {
                 this.validacaoFormulario[key].mensagem = ''
@@ -279,6 +281,7 @@ export default {
             }
 
             if (erro) {
+                this.desabilitarBotaoFormulario = false;
                 return;
             }
 
@@ -306,6 +309,7 @@ export default {
 
             axios.post('/api/usuarios', this.formulario)
             .then((resposta) => {
+                this.desabilitarBotaoFormulario = false;
                 this.exibirAlerta(resposta.data.message + " Redirecionando à tela inicial", true)
                 setTimeout(() => this.$router.push('/'), 3000);
 
@@ -315,6 +319,7 @@ export default {
                     this.validacaoFormulario[key].mensagem = erro.response.data.errors[key][0]
                     this.validacaoFormulario[key].erro = false
                 }
+                this.desabilitarBotaoFormulario = false;
                 this.exibirAlerta("Erro ao realizar cadastro", false);
 
             });
@@ -324,6 +329,7 @@ export default {
 
             axios.put('/api/usuarios/'+this.contatoId, this.formulario)
             .then((resposta) => {
+                this.desabilitarBotaoFormulario = false;
                 this.exibirAlerta(resposta.data.message + " Redirecionando à tela inicial", true)
                 setTimeout(() => this.$router.push('/'), 3000);
             })
@@ -333,6 +339,7 @@ export default {
                     this.validacaoFormulario[key].erro = false
                 }
 
+                this.desabilitarBotaoFormulario = false;
                 this.exibirAlerta("Erro ao realizar cadastro", false);
 
 
