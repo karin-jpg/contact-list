@@ -1,3 +1,3 @@
 <template>
-    <agenda-formulario/>
+    <agenda-formulario :modoEdicao="false"/>
 </template>
