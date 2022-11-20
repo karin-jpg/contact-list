@@ -14,11 +14,12 @@
 * Sqlite 3
 
 ## Para a execução do projeto
-O arquivo .env.example contém tudo necessário a execução exceto a configuração do mailtrap descrita abaixo, crie um clone seu renomeado .env
+O arquivo .env.example contém tudo necessário a execução exceto a configuração do mailtrap descrita abaixo, crie uma cópia do arquivo e o renomeie para .env
 
 ```
 composer install
 php artisan migrate (necessário ter php-sqlite3)
+php artisan key:generate
 npm install
 ```
 # Envio de email
