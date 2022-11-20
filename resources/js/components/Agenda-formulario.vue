@@ -47,7 +47,10 @@
         </div>
         <div class="d-flex">
             <div>
-                <button type="button" @click="cadastrarContato()" class="btn btn-primary">{{ botaoTexto }}</button>
+                <router-link to="/" type="button" class="btn btn-danger me-2">Voltar</router-link>
+            </div>
+            <div>
+                <button type="button" @click="enviarFormulario()" class="btn" :class="{'btn-primary': !modoEdicao, 'btn-warning': modoEdicao}">{{ textoTela.botaoConfirmar }}</button>
             </div>
         </div>
     </div>
@@ -109,6 +112,17 @@ export default {
             .catch(erro => {
                 console.log(erro.response.data)
             });
+        },
+
+
+        enviarFormulario(){
+            if (this.modoEdicao){
+                this.atualizarContato();
+                return;
+            }
+
+            this.cadastrarContato();
+
         },
 
         cadastrarContato(){
