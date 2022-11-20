@@ -3,11 +3,10 @@
         <h1 class="mb-5"> Agenda </h1>
         <div class="row h-100 align-items-center">
             <div class="col-12">
-                <router-link to="/editar" type="button" class="btn btn-primary">Novo contato</router-link>
+                <router-link to="/criar-contato" type="button" class="btn btn-primary">Novo contato</router-link>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">Email</th>
@@ -22,7 +21,6 @@
                     </thead>
                     <tbody>
                         <tr v-for="usuario in usuarios">
-                            <th scope="row">1</th>
                             <td class="align-middle">{{ usuario.nome }}</td>
                             <td class="align-middle">{{ usuario.telefone }}</td>
                             <td class="align-middle">{{ usuario.email }}</td>
