@@ -36,13 +36,30 @@
                                         <button type="button" class="btn btn-primary btn-sm">Editar</button>
                                     </div>
                                     <div>
-                                        <button type="button" class="btn btn-danger btn-sm">Remover</button>
+                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal">Remover</button>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">{{ modalInfo.modalTitulo }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ modalInfo.modalMensagem }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ modalInfo.modalBotaoCancela}}</button>
+                        <button type="button" class="btn btn-primary">{{ modalInfo.modalBotaoConfirma }}</button>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -52,7 +69,13 @@
 export default {
     data(){
         return {
-            usuarios: []
+            usuarios: [],
+            modalInfo: {
+                modalTitulo: '',
+                modalMensagem: '',
+                modalBotaoConfirma: '',
+                modalBotaoCancela: '',
+            }
         }
     },
     mounted() {
