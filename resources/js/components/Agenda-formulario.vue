@@ -22,7 +22,9 @@
             </div>
             <div class="col-2">
                 <label class="foxrm-label">Estado</label>
-                <input type="text" v-model="formulario.estado" class="form-control" disabled>
+                <select class="form-select" v-model="formulario.estado" aria-label="Default select example">
+                    <option v-for="estado in estados" :value="estado.value">{{ estado.text }}</option>
+                </select>
             </div>
             <div class="col-8">
                 <label class="foxrm-label">Cidade</label>
@@ -70,10 +72,24 @@ export default {
             }
         }
     },
-    mounted() {
-
+    mounted(){
+        this.listarEstados();
     },
     methods:{
+        listarEstados(){
+            axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+            .then((resposta) => {
+                resposta.data.forEach(estado => {
+                    this.estados.push({
+                        value: estado.sigla,
+                        text: estado.sigla
+                    })
+                });
+            })
+            .catch(erro => {
+                console.log(erro.response.data)
+            });
+        },
         buscarCep(){
 
             axios.get('https://cep.awesomeapi.com.br/json/'+this.formulario.cep)
