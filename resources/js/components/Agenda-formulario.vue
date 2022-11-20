@@ -1,58 +1,66 @@
 <template>
     <div class="container h-100 mt-4">
         <h1>{{ textoTela.titulo }}</h1>
-        <div class="mb-3 mt-3">
-            <label class="form-label">Nome</label>
-            <input type="nome" v-model="formulario.nome" class="form-control">
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label class="form-label">Email</label>
-                <input type="text" v-model="formulario.email" class="form-control">
+        <form class="row" novalidate>
+            <div class="mb-3 mt-3">
+                <label class="form-label">Nome</label>
+                <input type="nome" v-model="formulario.nome" class="form-control">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
             </div>
-            <div class="col">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" v-mask="['(##) ####-####', '(##) #####-####']" v-model="formulario.telefone" class="form-control" name="telefone">
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Email</label>
+                    <input type="text" v-model="formulario.email" class="form-control">
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="text" v-mask="['(##) ####-####', '(##) #####-####']" v-model="formulario.telefone" class="form-control" name="telefone">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-2">
-                <label class="form-label">Cep</label>
-                <input type="text" v-mask="'#####-###'" v-model="formulario.cep" class="form-control" @blur="buscarCep()">
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label class="form-label">Cep</label>
+                    <input type="text" v-mask="'#####-###'" v-model="formulario.cep" class="form-control" @blur="buscarCep()">
+                </div>
+                <div class="col-2">
+                    <label class="form-label">Estado</label>
+                    <select class="form-select" v-model="formulario.estado" aria-label="Default select example">
+                        <option v-for="estado in estados" :value="estado.value">{{ estado.text }}</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                    <label class="form-label">Cidade</label>
+                    <input type="text" v-model="formulario.cidade" class="form-control">
+                </div>
             </div>
-            <div class="col-2">
-                <label class="form-label">Estado</label>
-                <select class="form-select" v-model="formulario.estado" aria-label="Default select example">
-                    <option v-for="estado in estados" :value="estado.value">{{ estado.text }}</option>
-                </select>
+            <div class="row mb-3">
+                <div class="col-5">
+                    <label class="form-label">Bairro</label>
+                    <input type="text" v-model="formulario.bairro" class="form-control">
+                </div>
+                <div class="col-5">
+                    <label class="form-label">Endereço</label>
+                    <input type="text" v-model="formulario.endereco" class="form-control">
+                </div>
+                <div class="col-2">
+                    <label class="form-label">Número</label>
+                    <input type="text" v-model="formulario.endereco_numero" class="form-control">
+                </div>
             </div>
-            <div class="col-8">
-                <label class="form-label">Cidade</label>
-                <input type="text" v-model="formulario.cidade" class="form-control">
+            <div class="d-flex">
+                <div>
+                    <router-link to="/" type="button" class="btn btn-danger me-2">Voltar</router-link>
+                </div>
+                <div>
+                    <button type="submit" @click="enviarFormulario()" class="btn" :class="{'btn-primary': !modoEdicao, 'btn-warning': modoEdicao}">{{ textoTela.botaoConfirmar }}</button>
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-5">
-                <label class="form-label">Bairro</label>
-                <input type="text" v-model="formulario.bairro" class="form-control">
-            </div>
-            <div class="col-5">
-                <label class="form-label">Endereço</label>
-                <input type="text" v-model="formulario.endereco" class="form-control">
-            </div>
-            <div class="col-2">
-                <label class="form-label">Número</label>
-                <input type="text" v-model="formulario.endereco_numero" class="form-control">
-            </div>
-        </div>
-        <div class="d-flex">
-            <div>
-                <router-link to="/" type="button" class="btn btn-danger me-2">Voltar</router-link>
-            </div>
-            <div>
-                <button type="button" @click="enviarFormulario()" class="btn" :class="{'btn-primary': !modoEdicao, 'btn-warning': modoEdicao}">{{ textoTela.botaoConfirmar }}</button>
-            </div>
-        </div>
+        </form>
     </div>
 
 </template>
