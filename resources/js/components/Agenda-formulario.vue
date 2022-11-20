@@ -1,47 +1,47 @@
 <template>
     <div class="container h-100 mt-4">
         <h1>Novo contato</h1>
-        <div class="mb-3">
+        <div class="mb-3 mt-3">
             <label class="form-label">Nome</label>
             <input type="nome" v-model="formulario.nome" class="form-control">
         </div>
         <div class="row mb-3">
             <div class="col">
-                <label class="foxrm-label">Email</label>
+                <label class="form-label">Email</label>
                 <input type="text" v-model="formulario.email" class="form-control">
             </div>
             <div class="col">
-                <label for="telefone" class="foxrm-label">Telefone</label>
+                <label for="telefone" class="form-label">Telefone</label>
                 <input type="text" v-mask="['(##) ####-####', '(##) #####-####']" v-model="formulario.telefone" class="form-control" name="telefone">
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-2">
-                <label class="foxrm-label">Cep</label>
+                <label class="form-label">Cep</label>
                 <input type="text" v-mask="'#####-###'" v-model="formulario.cep" class="form-control" @blur="buscarCep()">
             </div>
             <div class="col-2">
-                <label class="foxrm-label">Estado</label>
+                <label class="form-label">Estado</label>
                 <select class="form-select" v-model="formulario.estado" aria-label="Default select example">
                     <option v-for="estado in estados" :value="estado.value">{{ estado.text }}</option>
                 </select>
             </div>
             <div class="col-8">
-                <label class="foxrm-label">Cidade</label>
+                <label class="form-label">Cidade</label>
                 <input type="text" v-model="formulario.cidade" class="form-control">
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-5">
-                <label class="foxrm-label">Bairro</label>
+                <label class="form-label">Bairro</label>
                 <input type="text" v-model="formulario.bairro" class="form-control">
             </div>
             <div class="col-5">
-                <label class="foxrm-label">Endereço</label>
+                <label class="form-label">Endereço</label>
                 <input type="text" v-model="formulario.endereco" class="form-control">
             </div>
             <div class="col-2">
-                <label class="foxrm-label">Número</label>
+                <label class="form-label">Número</label>
                 <input type="text" v-model="formulario.endereco_numero" class="form-control">
             </div>
         </div>
