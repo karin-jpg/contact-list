@@ -14,7 +14,7 @@
 * Sqlite 3
 
 ## Para a execução do projeto
-O arquivo .env.example contém tudo necessário a execução exceto a configuração do mailtrap descrita abaixo
+O arquivo .env.example contém tudo necessário a execução exceto a configuração do mailtrap descrita abaixo, crie um clone seu renomeado .env
 
 ```
 composer install
