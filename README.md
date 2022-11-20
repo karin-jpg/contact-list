@@ -35,9 +35,12 @@ MAIL_PASSWORD=
 MAIL_ENCRYPTION=tls
 ```
 
-Agora com todas as dependencias instaladas, são necessários dois terminais rodando os seguintes comandos
+Importate falar que o processamento de emails está sendo feito na database, por isso atente-se ao 2 comando abaixo para que ocorra o processamento da fila dos emails
+
+Agora com todas as dependencias instaladas, são necessários três terminais rodando os seguintes comandos
 ```
 php artisan serve
+php artisan queue:work
 npm run dev
 ```
 
