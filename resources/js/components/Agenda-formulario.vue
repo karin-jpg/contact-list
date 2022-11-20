@@ -12,13 +12,13 @@
             </div>
             <div class="col">
                 <label for="telefone" class="foxrm-label">Telefone</label>
-                <input type="text" v-model="formulario.telefone" class="form-control" name="telefone">
+                <input type="text" v-mask="['(##) ####-####', '(##) #####-####']" v-model="formulario.telefone" class="form-control" name="telefone">
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-2">
                 <label class="foxrm-label">Cep</label>
-                <input type="text" v-model="formulario.cep" class="form-control" @change="buscarCep()">
+                <input type="text" v-mask="'#####-###'" v-model="formulario.cep" class="form-control" @change="buscarCep()">
             </div>
             <div class="col-2">
                 <label class="foxrm-label">Estado</label>

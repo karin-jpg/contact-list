@@ -3,6 +3,7 @@ import './bootstrap';
 
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import VueTheMask from 'vue-the-mask'
 
 import App from './App.vue'
 import Agenda from './views/Agenda.vue'
@@ -22,5 +23,6 @@ const router = createRouter({
 
 createApp(App)
     .use(router)
+    .use(VueTheMask)
     .component('agenda-formulario', AgendaFormulario)
     .mount('#app')
