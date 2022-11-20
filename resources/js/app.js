@@ -16,7 +16,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', name: 'Home', component: Agenda },
-        { path: '/criar-contato', name: 'criarContato' component: CriarContato},
+        { path: '/criar-contato', name: 'criarContato', component: CriarContato},
         { path: '/editar-contato/:id', name: 'editarContato', component: EditarContato }
     ]
 });
