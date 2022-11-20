@@ -63,6 +63,7 @@ export default {
         return {
             botaoTexto: 'Cadastrar',
             formulario: {
+                id:'',
                 nome: '',
                 telefone: '',
                 email: '',
@@ -73,7 +74,11 @@ export default {
                 endereco: '',
                 endereco_numero: '',
             },
-            estados: []
+            estados: [],
+            textoTela: {
+                titulo: '',
+                botaoConfirmar: ''
+            }
         }
     },
     props: {
@@ -83,6 +88,11 @@ export default {
         }
     },
     mounted(){
+        if(this.modoEdicao) {
+            this.buscarDadosContato();
+        }
+
+        this.validacaoAcaoTela();
         this.listarEstados();
     },
     methods:{
@@ -114,6 +124,18 @@ export default {
             });
         },
 
+        validacaoAcaoTela(){
+            if (this.modoEdicao) {
+                this.textoTela.titulo = 'Editar contato'
+                this.textoTela.botaoConfirmar = 'Atualizar'
+                return;
+            }
+
+            this.textoTela.titulo = 'Novo contato'
+            this.textoTela.botaoConfirmar = 'Cadastrar'
+            return
+
+        },
 
         enviarFormulario(){
             if (this.modoEdicao){
