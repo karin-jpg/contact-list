@@ -33,7 +33,7 @@
                             <td>
                                 <div class="d-flex justify-content-around">
                                     <div>
-                                        <button type="button" class="btn btn-primary btn-sm">Editar</button>
+                                        <router-link :to="{ name: 'editarContato', params: {id: usuario.id} }" type="button" class="btn btn-primary btn-sm">Editar</router-link>
                                     </div>
                                     <div>
                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal">Remover</button>
