@@ -309,7 +309,6 @@ export default {
 
             axios.post('/api/usuarios', this.formulario)
             .then((resposta) => {
-                this.desabilitarBotaoFormulario = false;
                 this.exibirAlerta(resposta.data.message + " Redirecionando à tela inicial", true)
                 setTimeout(() => this.$router.push('/'), 3000);
 
@@ -329,7 +328,6 @@ export default {
 
             axios.put('/api/usuarios/'+this.contatoId, this.formulario)
             .then((resposta) => {
-                this.desabilitarBotaoFormulario = false;
                 this.exibirAlerta(resposta.data.message + " Redirecionando à tela inicial", true)
                 setTimeout(() => this.$router.push('/'), 3000);
             })
