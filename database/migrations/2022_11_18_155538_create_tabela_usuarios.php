@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('cidade');
             $table->string('bairro');
             $table->string('endereco');
-            $table->string('endereco_numero');
+            $table->string('endereco_numero')->default("S/N");
             $table->timestamps();
         });
     }
