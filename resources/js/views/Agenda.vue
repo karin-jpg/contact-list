@@ -9,7 +9,7 @@
                     {{ requisicao.mensagem }}
                 </div>
                 <table class="table">
-                    <thead class="table-dark">
+                    <thead class="table-dark sticky-top">
                         <tr>
                             <th scope="col">Nome</th>
                             <th scope="col">Telefone</th>
@@ -46,20 +46,6 @@
                             </td>
                         </tr>
                     </tbody>
-                    <tfoot class="table-dark">
-                        <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Cep</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col">Cidade</th>
-                            <th scope="col">Bairro</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Número</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
             <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
