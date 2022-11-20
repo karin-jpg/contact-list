@@ -44,7 +44,7 @@ class UsuariosController extends Controller
     {
         $usuario = Usuarios::create($request->all());
 
-        Mail::to('teste@gmail.com')->send(new EmailTeste($usuario->nome));
+        Mail::to('teste@gmail.com')->queue(new EmailTeste($usuario->nome));
 
         return response()->json([
             'message' => "Usuário adicionado a lista de contatos!",
