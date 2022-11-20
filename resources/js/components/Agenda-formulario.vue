@@ -183,7 +183,10 @@ export default {
             .catch(erro => {
                 this.validacaoFormulario.cep.mensagem = 'Cep inválido!'
                 this.validacaoFormulario.cep.erro = true
-
+                this.formulario.estado = ''
+                this.formulario.cidade = ''
+                this.formulario.bairro = ''
+                this.formulario.endereco = ''
             });
         },
 
