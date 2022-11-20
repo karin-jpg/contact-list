@@ -6,7 +6,9 @@ use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use App\Http\Requests\UsuariosAtualizacaoRequest;
 use App\Http\Requests\UsuariosRequest;
+use App\Mail\EmailTeste;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 
 class UsuariosController extends Controller
 {
@@ -41,6 +43,8 @@ class UsuariosController extends Controller
     public function store(UsuariosRequest $request)
     {
         $usuario = Usuarios::create($request->all());
+
+        Mail::to('teste@gmail.com')->send(new EmailTeste($usuario->nome));
 
         return response()->json([
             'message' => "Usuário adicionado a lista de contatos!",
