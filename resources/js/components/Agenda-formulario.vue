@@ -1,6 +1,6 @@
 <template>
     <div class="container h-100 mt-4">
-        <h1>Novo contato</h1>
+        <h1>{{ textoTela.titulo }}</h1>
         <div class="mb-3 mt-3">
             <label class="form-label">Nome</label>
             <input type="nome" v-model="formulario.nome" class="form-control">
@@ -85,6 +85,10 @@ export default {
         modoEdicao: {
             type: Boolean,
             default: false
+        },
+        contatoId: {
+            type: String,
+            default: null
         }
     },
     mounted(){
@@ -147,6 +151,13 @@ export default {
 
         },
 
+        buscarDadosContato(){
+            axios.get('/api/usuarios/'+this.contatoId)
+            .then((resposta) => {
+                this.formulario = resposta.data.usuario
+            });
+        },
+
         cadastrarContato(){
 
             // if(!this.formulario.endereco_numero) {
@@ -163,7 +174,19 @@ export default {
                 alert('erro ao cadastrar')
                 console.log(erro.response.data)
             });
+        },
+
+        atualizarContato(){
+
+            axios.put('/api/usuarios/'+this.contatoId, this.formulario)
+            .then((resposta) => {
+                alert(resposta.data.message)
+            })
+            .catch(erro => {
+                alert('erro ao cadastrar')
+            });
         }
+
     }
 }
 </script>
