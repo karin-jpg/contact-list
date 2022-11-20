@@ -69,7 +69,14 @@ export default {
                 bairro: '',
                 endereco: '',
                 endereco_numero: '',
-            }
+            },
+            estados: []
+        }
+    },
+    props: {
+        modoEdicao: {
+            type: Boolean,
+            default: false
         }
     },
     mounted(){
@@ -105,6 +112,11 @@ export default {
         },
 
         cadastrarContato(){
+
+            // if(!this.formulario.endereco_numero) {
+            //     delete(this.formulario.endereco_numero)
+            // }
+
             axios.post('/api/usuarios', this.formulario)
             .then((resposta) => {
                 alert(resposta.data.message)
