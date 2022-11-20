@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use App\Http\Requests\UsuariosAtualizacaoRequest;
 use App\Http\Requests\UsuariosRequest;
 use Exception;
 
@@ -17,7 +18,8 @@ class UsuariosController extends Controller
 
     public function index()
     {
-        $usuarios = Usuarios::all();
+        $usuarios = Usuarios::all()->sortBy('nome')->values();
+
         return response()->json([
             'usuarios' => $usuarios
         ]);
@@ -53,7 +55,7 @@ class UsuariosController extends Controller
      * @param  \App\Models\Usuarios  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuarios $usuario)
+    public function update(UsuariosAtualizacaoRequest $request, Usuarios $usuario)
     {
         $usuario->update($request->all());
 
