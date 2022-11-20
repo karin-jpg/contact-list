@@ -35,10 +35,10 @@
                             <td>
                                 <div class="d-flex justify-content-around">
                                     <div>
-                                        <button type="button" class="btn btn-primary">Editar contato</button>
+                                        <button type="button" class="btn btn-primary btn-sm">Editar</button>
                                     </div>
                                     <div>
-                                        <button type="button" class="btn btn-danger">Remover contato</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Remover</button>
                                     </div>
                                 </div>
                             </td>
@@ -49,6 +49,7 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
     data(){
