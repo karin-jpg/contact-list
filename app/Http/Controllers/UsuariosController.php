@@ -17,7 +17,8 @@ class UsuariosController extends Controller
 
     public function index()
     {
-        $usuarios = Usuarios::all()->sortBy('nome');
+        $usuarios = Usuarios::all()->sortBy('nome')->values();
+        
         return response()->json([
             'usuarios' => $usuarios
         ]);
