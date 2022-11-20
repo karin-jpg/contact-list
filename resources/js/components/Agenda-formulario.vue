@@ -306,8 +306,8 @@ export default {
 
             axios.post('/api/usuarios', this.formulario)
             .then((resposta) => {
-                this.exibirAlerta(resposta.data.message, true)
-                setTimeout(() => this.$router.push('/'), 2000);
+                this.exibirAlerta(resposta.data.message + " Redirecionando à tela inicial", true)
+                setTimeout(() => this.$router.push('/'), 3000);
 
             })
             .catch(erro => {
@@ -324,7 +324,8 @@ export default {
 
             axios.put('/api/usuarios/'+this.contatoId, this.formulario)
             .then((resposta) => {
-                this.exibirAlerta(resposta.data.message, true)
+                this.exibirAlerta(resposta.data.message + " Redirecionando à tela inicial", true)
+                setTimeout(() => this.$router.push('/'), 3000);
             })
             .catch(erro => {
                 for (const key in erro.response.data.errors) {
