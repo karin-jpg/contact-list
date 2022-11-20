@@ -14,8 +14,10 @@
 * Sqlite 3
 
 ## Para a execução do projeto
+O arquivo .env.example contém tudo necessário a execução exceto a configuração do mailtrap descrita abaixo
+
 ```
-Composer install
+composer install
 php artisan migrate (necessário ter php-sqlite3)
 npm install
 ```
