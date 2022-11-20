@@ -9,7 +9,8 @@
         "laravel-vite-plugin": "^0.7.0",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
-        "vite": "^3.2.4"
+        "vite": "^3.2.4",
+        "vue-the-mask": "^0.11.1"
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^3.2.0",
