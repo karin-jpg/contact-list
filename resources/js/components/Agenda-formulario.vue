@@ -18,7 +18,7 @@
         <div class="row mb-3">
             <div class="col-2">
                 <label class="foxrm-label">Cep</label>
-                <input type="text" v-mask="'#####-###'" v-model="formulario.cep" class="form-control" @change="buscarCep()">
+                <input type="text" v-mask="'#####-###'" v-model="formulario.cep" class="form-control" @blur="buscarCep()">
             </div>
             <div class="col-2">
                 <label class="foxrm-label">Estado</label>
@@ -28,17 +28,17 @@
             </div>
             <div class="col-8">
                 <label class="foxrm-label">Cidade</label>
-                <input type="text" v-model="formulario.cidade" class="form-control" disabled>
+                <input type="text" v-model="formulario.cidade" class="form-control">
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-5">
                 <label class="foxrm-label">Bairro</label>
-                <input type="text" v-model="formulario.bairro" class="form-control" disabled>
+                <input type="text" v-model="formulario.bairro" class="form-control">
             </div>
             <div class="col-5">
                 <label class="foxrm-label">Endereço</label>
-                <input type="text" v-model="formulario.endereco" class="form-control" disabled>
+                <input type="text" v-model="formulario.endereco" class="form-control">
             </div>
             <div class="col-2">
                 <label class="foxrm-label">Número</label>
