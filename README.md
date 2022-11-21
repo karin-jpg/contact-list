@@ -2,7 +2,6 @@
 
 ## Este é um projeto simples de um CRUD de uma agenda de contatos usando laravel 9 e Vue 3
 
-## Como executar o projeto:
 # Para o desenvolvimento do projeto, foram usadas as seguintes tecnologias
 * npm 8.4.4
 * node v17.7.1
@@ -14,6 +13,8 @@
 * Sqlite 3
 
 ## Para a execução do projeto
+É necessário ter as tecnologias listadas acima instalas em versão igual ou superior
+
 O arquivo .env.example contém tudo necessário a execução exceto a configuração do mailtrap descrita abaixo, crie uma cópia do arquivo e o renomeie para .env
 
 ```
