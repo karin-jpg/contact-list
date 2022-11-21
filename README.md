@@ -22,6 +22,9 @@ php artisan migrate (necessário ter php-sqlite3)
 php artisan key:generate
 npm install
 ```
+# Testes
+Para executas os testes, execute ```vendor/bin/phpunit``` na raiz do projeto
+
 # Envio de email
 Para receber o email ao cadastrar um usuário, é necessário criar uma conta no mailtrap (https://mailtrap.io/home)
 e adicionar a configuração disponível para laravel7+ ao arquivo .env
