@@ -1,6 +1,6 @@
 # Agenda de contatos
 
-## Este é um projeto simples de um CRUD de uma agenda de contatos usando laravel 9 e Vue 3
+## Este é um projeto simples de um CRUD de uma agenda de contatos usando laravel 8 e Vue 3
 
 # Para o desenvolvimento do projeto, foram usadas as seguintes tecnologias
 * npm 8.4.4
